@@ -50,7 +50,7 @@ define('chart-3d', [], function () {
                 legend: {
                     enabled: options.showLegend
                 },
-                yAxis: {
+                xAxis: {
                     title: {
                         text: objectiveNames[0]
                     },
@@ -58,7 +58,7 @@ define('chart-3d', [], function () {
                     max: options.max,
                     tickInterval: 0.1,
                 },
-                xAxis: {
+                yAxis: {
                     title: {
                         text: objectiveNames[1]
                     },
