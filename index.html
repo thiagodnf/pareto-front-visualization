@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <title>Pareto-front Visualization</title>
+		<meta name="author" content="Thiago Ferreira">
+		<meta name="description" content="A Pareto-front visualization developed in HTML">
+		<meta name="keywords" content="Pareto-front, visualization, HTML5">
+		<meta name="robots" content="index, follow">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700"/>
+
+        <!-- Vendors -->
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
+        <!-- Custom -->
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    </head>
+	<body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
+            <a class="navbar-brand" href="#">
+                Pareto-front Visualization
+            </a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="">About</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container-fluid pb-5">
+            <div class="card input">
+                <div class="card-body">
+                    <textarea class="form-control input" rows="15" placeholder="Past your .csv here" autofocus></textarea>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-success btn-action" id="btn-visualize">Visualize</button>
+                </div>
+            </div>
+            <div class="card visualization mt-3">
+                <div class="card-header">Visualization</div>
+                <div class="card-body">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-chart-tab" data-toggle="tab" href="#nav-chart" role="tab">Chart</a>
+                            <a class="nav-item nav-link" id="nav-data-tab" data-toggle="tab" href="#nav-data" role="tab">Data</a>
+                            <a class="nav-item nav-link" id="nav-settings-tab" data-toggle="tab" href="#nav-settings" role="tab">Settings</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="nav-chart" role="tabpanel">
+                            <div id="chart" class="mt-3"></div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-data" role="tabpanel">
+                            <div class="table-responsive mt-3">
+                                <table class="table table-striped datatable" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-settings" role="tabpanel">
+                            <form id="form-settings" class="mt-3">
+                                <div class="form-group">
+                                    <label for="decimal-places">Decimal Places</label>
+                                    <input type="number" class="form-control" id="decimal-places" name="decimal-places" value="2" min="1" max="10" step="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="min">Min</label>
+                                    <input type="number" class="form-control" id="min" name="min" value="0.0" step="0.1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="max">Max</label>
+                                    <input type="number" class="form-control" id="max" name="max" value="1.0" step="0.1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="color">Color</label>
+                                    <select class="form-control" name="color" id="color">
+                                        <option value="" selected>Colorful</option>
+                                        <option value="#7cb5ec" style="background-color: #7cb5ec; color: white">Blue</option>
+                                        <option value="#434348" style="background-color: #434348; color: white">Black</option>
+                                        <option value="#90ed7d" style="background-color: #90ed7d; color: white">Light Green</option>
+                                        <option value="#f7a35c" style="background-color: #f7a35c; color: white">Orange</option>
+                                        <option value="#8085e9" style="background-color: #8085e9; color: white">Purple</option>
+                                        <option value="#f15c80" style="background-color: #f15c80; color: white">Pink</option>
+                                        <option value="#e4d354" style="background-color: #e4d354; color: white">Yellow</option>
+                                        <option value="#2b908f" style="background-color: #2b908f; color: white">Green</option>
+                                        <option value="#f45b5b" style="background-color: #f45b5b; color: white">Red</option>
+                                        <option value="#91e8e1" style="background-color: #91e8e1; color: white">Light Blue</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                        <label for="color">Chart Type</label>
+                                        <select class="form-control" name="chart-type" id="chart-type">
+                                            <option value="chart-2d">2D</option>
+                                            <option value="chart-3d">3D</option>
+                                            <option value="chart-4d" selected>4D</option>
+                                        </select>
+                                    </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="show-legend" name="show-legend">
+                                    <label class="form-check-label" for="show-legend">Show Legend</label>
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="show-markers" checked="checked" name="show-markers">
+                                    <label class="form-check-label" for="show-markers">Show Markers</label>
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="show-lines" checked="checked" name="show-lines">
+                                    <label class="form-check-label" for="show-lines">Show Lines</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="toaster"></div>
+
+        <!-- Vendors -->
+
+        <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/highcharts-3d.js"></script>
+        <script type="text/javascript" src="http://code.highcharts.com/modules/exporting.js"></script>
+        <!-- optional -->
+        <script type="text/javascript" src="http://code.highcharts.com/modules/offline-exporting.js"></script>
+        <script type="text/javascript" src="http://code.highcharts.com/modules/export-data.js"></script>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="app/config"></script>
+
+        <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+    </body>
+</html>
