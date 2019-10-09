@@ -17,5 +17,13 @@ define('toaster', ['toast'], function (toast) {
         static showError (content) {
             Toaster.showToaster('error', 'Error', content)
         }
+
+        static showSuccess (content) {
+            Toaster.showToaster('success', 'Success', content)
+        }
+
+        static showInfo (content) {
+            Toaster.showToaster('info', 'Information', content)
+        }
     }
 })

@@ -28,11 +28,40 @@ define([
         document.querySelector(selector).scrollIntoView({ behavior: 'smooth' })
     }
 
+    function getContentType(){
+        return $("#content-type").val() || "csv";
+    }
+
+    function getObjectiveNames(rows){
+
+        var columns = rows[0].split(getSeparator());
+
+        columns = columns.map(e => e.trim()).filter(e => e.length !== 0);
+
+        if(getContentType() == "tsv"){
+
+            var names = [];
+
+            for (var i = 1; i <= columns.length; i++){
+                names.push("f" + i);
+            }
+
+            return names;
+        }
+
+        return columns;
+    }
+
     function getInput(){
         return $(".input textarea").val() || "";
     }
 
     function getSeparator(){
+
+        if(getContentType() == "tsv"){
+            return "\t";
+        }
+
         return ",";
     }
 
@@ -49,9 +78,9 @@ define([
 
             var parts = rows[i].split(getSeparator());
 
-            console.log(rows[i])
-
-            var columns = parts.map(e => parseFloat(e))
+            var columns = parts.map(e => e.trim())
+                    .filter(e => e.length !== 0)
+                    .map(e => parseFloat(e));
 
             series.push({
                 name: i.toFixed(0),
@@ -66,7 +95,9 @@ define([
 
         var rows = input.split("\n");
 
-        var objectiveNames = rows[0].split(getSeparator());
+        var objectiveNames = getObjectiveNames(rows);
+
+        console.log(objectiveNames)
 
         var series = getSeries(rows);
 
@@ -87,6 +118,8 @@ define([
         scrollTo(".visualization")
 
         $('#nav-chart-tab').tab('show')
+
+        Toaster.showSuccess("Done");
     }
 
     function addData(objectiveNames, series){

@@ -34,10 +34,20 @@
         <div class="container-fluid pb-5">
             <div class="card input">
                 <div class="card-body">
-                    <textarea class="form-control input" rows="15" placeholder="Past your .csv here" autofocus></textarea>
+                    <textarea class="form-control input" rows="15" placeholder="Past your .csv or .tsv here" autofocus></textarea>
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="btn btn-success btn-action" id="btn-visualize">Visualize</button>
+                    <div class="row">
+                        <div class="col-10">
+                            <button type="button" class="btn btn-success" id="btn-visualize">Visualize</button>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <select class="form-control" id="content-type" name="content-type">
+                                <option value="csv">.csv</option>
+                                <option value="tsv">.tsv</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card visualization mt-3">
@@ -97,13 +107,13 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                        <label for="color">Chart Type</label>
-                                        <select class="form-control" name="chart-type" id="chart-type">
-                                            <option value="chart-2d">2D</option>
-                                            <option value="chart-3d">3D</option>
-                                            <option value="chart-4d" selected>4D</option>
-                                        </select>
-                                    </div>
+                                    <label for="color">Chart Type</label>
+                                    <select class="form-control" name="chart-type" id="chart-type">
+                                        <option value="chart-2d">2D</option>
+                                        <option value="chart-3d">3D</option>
+                                        <option value="chart-4d" selected>4D</option>
+                                    </select>
+                                </div>
                                 <div class="form-group form-check">
                                     <input type="checkbox" class="form-check-input" id="show-legend" name="show-legend">
                                     <label class="form-check-label" for="show-legend">Show Legend</label>
