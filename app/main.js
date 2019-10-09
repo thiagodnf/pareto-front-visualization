@@ -208,9 +208,6 @@ define([
         $("#btn-visualize").click(function(event){
             event.preventDefault();
 
-            console.log(hasHeader());
-            console.log(getSeparator())
-
             fireVisualize();
 
             return false;
