@@ -42,8 +42,16 @@ define([
 
         for (var i = 1; i < rows.length; i++) {
 
-            var columns = rows[i].split(getSeparator())
-                            .map(e => parseFloat(e))
+            // Ignore blank lines
+            if(!rows[i]){
+                continue;
+            }
+
+            var parts = rows[i].split(getSeparator());
+
+            console.log(rows[i])
+
+            var columns = parts.map(e => parseFloat(e))
 
             series.push({
                 name: i.toFixed(0),
