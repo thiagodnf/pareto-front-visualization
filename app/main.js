@@ -106,10 +106,13 @@ define([
         if(!chart){
             if (objectiveNames.length == 2) {
                 chart = new Chart2D("chart");
+                $("#chart-type").val("chart-2d");
             } else if (objectiveNames.length == 3) {
                 chart = new Chart3D("chart");
+                $("#chart-type").val("chart-3d");
             } else if (objectiveNames.length >= 4) {
                 chart = new Chart4D("chart");
+                $("#chart-type").val("chart-4d");
             }
         }
 
