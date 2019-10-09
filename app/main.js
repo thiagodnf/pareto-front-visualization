@@ -28,8 +28,8 @@ define([
         document.querySelector(selector).scrollIntoView({ behavior: 'smooth' })
     }
 
-    function getContentType(){
-        return $("#content-type").val() || "csv";
+    function hasHeader(){
+        return $("#has-header").is(':checked');
     }
 
     function getObjectiveNames(rows){
@@ -38,7 +38,7 @@ define([
 
         columns = columns.map(e => e.trim()).filter(e => e.length !== 0);
 
-        if(getContentType() == "tsv"){
+        if(!hasHeader()){
 
             var names = [];
 
@@ -58,11 +58,19 @@ define([
 
     function getSeparator(){
 
-        if(getContentType() == "tsv"){
+        var separator = $("#separator").val() || "comma";
+
+        if (separator == "comma") {
+            return ",";
+        } else if(separator == "tab") {
             return "\t";
+        } else if(separator == "space") {
+            return " ";
+        } else if(separator == "semicolon") {
+            return ";";
         }
 
-        return ",";
+        return ","
     }
 
     function getSeries(rows){
@@ -200,6 +208,9 @@ define([
         $("#btn-visualize").click(function(event){
             event.preventDefault();
 
+            console.log(hasHeader());
+            console.log(getSeparator())
+
             fireVisualize();
 
             return false;
@@ -214,5 +225,9 @@ define([
 
             return false;
         });
+
+        window.onerror = function(e) {
+            Toaster.showError(e);
+        };
     })
 })
