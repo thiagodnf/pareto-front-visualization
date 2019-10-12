@@ -18,7 +18,7 @@ body {
   color: #5fcf80; }
 
 .navbar-toggler {
-  border-color: #edeff0 !important; }
+  border-color: #9ea3a7 !important; }
 
 .navbar-toggler-icon {
   color: #edeff0 !important; }
@@ -56,6 +56,16 @@ body {
   .btn-success:active {
     border-color: #2e9a4e !important;
     background-color: #2e9a4e !important; }
+
+.btn-primary {
+  background-color: #3f8abf !important;
+  border-color: #3f8abf !important; }
+  .btn-primary:hover {
+    border-color: #326e99 !important;
+    background-color: #326e99 !important; }
+  .btn-primary:active {
+    border-color: #2c6085 !important;
+    background-color: #2c6085 !important; }
 
 .btn-outline-secondary {
   color: #55616c;
@@ -96,3 +106,6 @@ textarea:focus {
 
 .nav-link {
   color: #3f8abf !important; }
+
+h5 {
+  font-weight: 650; }

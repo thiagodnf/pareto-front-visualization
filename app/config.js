@@ -15,6 +15,7 @@ require.config({
 
         // Utils
         'toaster': 'modules/util/toaster',
+        'requires': 'modules/util/requires',
     },
 })
 

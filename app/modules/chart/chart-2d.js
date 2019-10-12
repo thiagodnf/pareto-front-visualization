@@ -1,4 +1,4 @@
-define('chart-2d', [], function () {
+define('chart-2d', ['requires'], function (requires) {
 
     'use strict'
 
@@ -9,13 +9,16 @@ define('chart-2d', [], function () {
             this.chart = undefined;
         }
 
-        plot (options, objectiveNames, series) {
+        plot (options, objectiveNames, series, ranges) {
+
+            requires(options).isNotUndefined();
+            requires(objectiveNames).isArray().withSizeGreaterThanOrEqualTo(2);
+            requires(series).isArray();
+            requires(ranges).isArray().withSizeGreaterThanOrEqualTo(2);
 
             if (this.chart) {
                 this.chart.destroy();
             }
-
-            objectiveNames = objectiveNames.splice(0, 2);
 
             var newSerie = {
                 name: 'Pareto-front',
@@ -23,7 +26,14 @@ define('chart-2d', [], function () {
             };
 
             series.forEach(serie => {
-                newSerie.data.push(serie.data.splice(0, 2));
+
+                var row = [];
+
+                for (var i = 0; i < 2; i++) {
+                    row.push(serie.data[i]);
+                }
+
+                newSerie.data.push(row);
             });
 
             this.chart = Highcharts.chart(this.id, {
@@ -42,16 +52,16 @@ define('chart-2d', [], function () {
                     title: {
                         text: objectiveNames[0]
                     },
-                    min: options.min,
-                    max: options.max,
+                    min: ranges[0].min,
+                    max: ranges[0].max,
                     tickInterval: 0.1,
                 },
                 yAxis: {
                     title: {
                         text: objectiveNames[1]
                     },
-                    min: options.min,
-                    max: options.max,
+                    min: ranges[1].min,
+                    max: ranges[1].max,
                     tickInterval: 0.1,
                 },
                 plotOptions: {

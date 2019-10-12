@@ -11,6 +11,10 @@ define('chart-4d', [], function () {
 
         plot (options, objectiveNames, series) {
 
+            requires(options).isNotUndefined();
+            requires(objectiveNames).isArray();
+            requires(series).isArray();
+
             if(this.chart){
                 this.chart.destroy();
             }
