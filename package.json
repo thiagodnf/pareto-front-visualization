@@ -5,7 +5,6 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "node server.js",
-		"dev": "nodemon app.js",
 		"lint": "eslint .",
 		"build-css": "node-sass --include-path scss css/scss/style.scss css/style.css"
 	},
@@ -31,7 +30,6 @@
 	"dependencies": {
 		"serve-static": "^1.13.2",
 		"connect": "^3.6.6",
-		"nodemon": "1.18.3",
 		"eslint": "^5.2.0",
 		"network": "^0.4.1",
 		"winston": "^2.4.2",
