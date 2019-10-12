@@ -220,25 +220,20 @@ define([
 
         addData(columnNames, series);
 
+        if (columnNames.length == 2) {
+            options.chartType = "2d";
+        } else if (columnNames.length == 3) {
+            options.chartType = "3d";
+        } else if (columnNames.length >= 4) {
+            options.chartType = "4d";
+        }
+
         if (options.chartType == "2d") {
             chart = new Chart2D("chart");
         } else if (options.chartType == "3d") {
             chart = new Chart3D("chart");
         } else if (options.chartType == "4d") {
             chart = new Chart4D("chart");
-        }
-
-        if(!chart){
-            if (columnNames.length == 2) {
-                chart = new Chart2D("chart");
-                $("#chart-type").val("2d");
-            } else if (columnNames.length == 3) {
-                chart = new Chart3D("chart");
-                $("#chart-type").val("3d");
-            } else if (columnNames.length >= 4) {
-                chart = new Chart4D("chart");
-                $("#chart-type").val("4d");
-            }
         }
 
         chart.plot(options, columnNames, series, ranges);
@@ -284,6 +279,7 @@ define([
 
         $(".table-ranges").find('tbody tr').each(function(i, row){
 
+
             var $row = $(this);
 
             options.userRanges.push({
@@ -292,8 +288,6 @@ define([
                 max : parseFloat($row.find("input[name='max']").val())
             });
         });
-
-        console.log(options)
 
         $('#nav-chart-tab').tab('show')
 
@@ -333,19 +327,21 @@ define([
         $(".example").click(function(event){
             event.preventDefault();
 
-            var url = "https://raw.githubusercontent.com/thiagodnf/pareto-front-visualization/master/examples/ZDT3.csv";
+            var url = $(this).attr("href");
 
             $.get(url, function(response){
                 $(".input textarea").val(response)
                 scrollTo(".input");
             });
 
+            $('.navbar-collapse').collapse('hide');
+
             return false;
         });
 
         // This code closes the navbar when it is collapsed automatically
-        $('.navbar-nav>li>a').on('click', function(){
-            $('.navbar-collapse').collapse('hide');
+        $('.navbar-nav>li>a').not(".dropdown-toggle").on('click', function(){
+           $('.navbar-collapse').collapse('hide');
         });
     })
 })
