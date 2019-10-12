@@ -5,9 +5,10 @@ $light-gray: #edeff0;
 body {
 	/*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";*/
     font-family: Nunito,sans-serif;
-    background-color: $light-gray;
-    color: #3e474f;
+    background: #edeff0;
+    color: #576366;
     margin-top: 70px;
+    -webkit-font-smoothing: antialiased;
 };
 
 /*
@@ -58,5 +59,76 @@ body {
     .toast-wrapper .bg-danger {
         background-color: #ed5a5a !important;
     }
+
+.btn-success{
+    background-color: $green;
+    border-color: $green;
+    &:hover {
+        border-color: darken($green, 10%) !important;
+        background-color: darken($green, 10%) !important;
+    }
+    &:active {
+        border-color: darken($green, 20%) !important;
+        background-color: darken($green, 20%) !important;
+    }
+}
+
+.btn-outline-secondary{
+    color: #55616c;
+    background-color: transparent !important;
+    border: 2px solid rgba(48,73,97,0.1) !important;
+    &:hover {
+        border-color: #7b8b8e !important;
+        color: #576366 !important;
+    }
+}
+
+.card-footer{
+    background-color: #f9fafa;
+}
+.card-header{
+    background-color: #f9fafa;
+}
+
+small{
+    color: lighten($dark-gray, 30%);
+}
+
+.card-with-shadow{
+    border: none;
+    box-shadow: 0px 2px 0px rgba(0,0,0,0.15);
+    border-radius: 5px;
+}
+
+
+
+.linedwrap{
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+
+
+}
+
+textarea{
+    width: 100%;
+    color: #576366 !important;
+    font-size: 1.1rem !important;
+    font-weight: 400;
+}
+
+textarea:focus{
+    outline: none !important;
+}
+
+.nav-link{
+    color: #3f8abf !important;
+}
+
+
+
+
+
 
 

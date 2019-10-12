@@ -1,9 +1,10 @@
 body {
   /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";*/
   font-family: Nunito,sans-serif;
-  background-color: #edeff0;
-  color: #3e474f;
-  margin-top: 70px; }
+  background: #edeff0;
+  color: #576366;
+  margin-top: 70px;
+  -webkit-font-smoothing: antialiased; }
 
 /*
  *   Navbar
@@ -45,3 +46,53 @@ body {
 
 .toast-wrapper .bg-danger {
   background-color: #ed5a5a !important; }
+
+.btn-success {
+  background-color: #5fcf80;
+  border-color: #5fcf80; }
+  .btn-success:hover {
+    border-color: #3ac162 !important;
+    background-color: #3ac162 !important; }
+  .btn-success:active {
+    border-color: #2e9a4e !important;
+    background-color: #2e9a4e !important; }
+
+.btn-outline-secondary {
+  color: #55616c;
+  background-color: transparent !important;
+  border: 2px solid rgba(48, 73, 97, 0.1) !important; }
+  .btn-outline-secondary:hover {
+    border-color: #7b8b8e !important;
+    color: #576366 !important; }
+
+.card-footer {
+  background-color: #f9fafa; }
+
+.card-header {
+  background-color: #f9fafa; }
+
+small {
+  color: #8694a0; }
+
+.card-with-shadow {
+  border: none;
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 5px; }
+
+.linedwrap {
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem; }
+
+textarea {
+  width: 100%;
+  color: #576366 !important;
+  font-size: 1.1rem !important;
+  font-weight: 400; }
+
+textarea:focus {
+  outline: none !important; }
+
+.nav-link {
+  color: #3f8abf !important; }

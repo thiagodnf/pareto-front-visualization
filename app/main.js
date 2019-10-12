@@ -205,6 +205,8 @@ define([
 
     $(function () {
 
+        $(".lined").linedtextarea();
+
         $("#btn-visualize").click(function(event){
             event.preventDefault();
 
@@ -226,5 +228,20 @@ define([
         window.onerror = function(e) {
             Toaster.showError(e);
         };
+
+        $(".example").click(function(event){
+            event.preventDefault();
+
+            var url = "https://raw.githubusercontent.com/thiagodnf/pareto-front-visualization/master/examples/ZDT3.tsv";
+
+            $.get(url, function(response){
+                $(".input textarea").val(response)
+            });
+
+            return false;
+        });
     })
+
+
+
 })

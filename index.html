@@ -17,6 +17,8 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
 
         <!-- Vendors -->
+        <link rel="stylesheet" type="text/css" href="css/vendor/jquery-linedtextarea.css"/>
+
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
         <!-- Custom -->
@@ -28,24 +30,28 @@
             <a class="navbar-brand" href="#">Pareto-front Visualization</a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
+                    <a class="nav-link example" href="#">Example</span></a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="https://github.com/thiagodnf/pareto-front-visualization">About</span></a>
                 </li>
             </ul>
         </nav>
 
         <div class="container-fluid pb-5">
-            <div class="card input">
+            <div class="card input card-with-shadow">
                 <div class="card-body">
-                    <textarea class="form-control input" rows="15" placeholder="Past your .csv here" autofocus></textarea>
+                    <textarea class="form-contol input lined" rows="20" placeholder="Past your file here" autofocus></textarea>
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="btn btn-success" id="btn-visualize">Visualize</button>
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="collapse" data-target="#collapseExample"><i class="fa fa-cog"></i></button>
-                    <div class="collapse mt-3" id="collapseExample">
+                    <div class="collapse mt-0 mb-3" id="collapseExample">
                         <div class="card card-body pb-0 mb-0">
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="has-header" name="has-header" checked="checked">
-                                <label class="form-check-label" for="has-header">Header</label>
+                                <label class="form-check-label" for="has-header">Header
+                                    <br/>
+                                    <small>Check out if the content has a header</small>
+                                </label>
                             </div>
                             <div class="form-group">
                                 <label for="separator">Separator</label>
@@ -55,12 +61,15 @@
                                     <option value="comma" selected >Comma (,)</option>
                                     <option value="semicolon" >Semicolon (;)</option>
                                 </select>
+                                <small>Character used for splitting the columns</small>
                             </div>
                         </div>
                     </div>
+                    <button type="button" class="btn btn-success" id="btn-visualize">Visualize</button>
+                    <button type="button" class="btn btn-outline-secondary" data-toggle="collapse" data-target="#collapseExample"><i class="fa fa-cog"></i></button>
                 </div>
             </div>
-            <div class="card visualization mt-3">
+            <div class="card visualization mt-3 card-with-shadow">
                 <div class="card-header">Visualization</div>
                 <div class="card-body">
                     <nav>
@@ -155,11 +164,13 @@
         <!-- <script type="text/javascript" src="https://code.highcharts.com/modules/offline-exporting.js"></script> -->
         <script type="text/javascript" src="https://code.highcharts.com/modules/export-data.js"></script>
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+        <script type="text/javascript" src="app/vendor/jquery-linedtextarea.js"></script>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="app/config"></script>
 
