@@ -220,16 +220,24 @@ define([
 
         addData(columnNames, series);
 
+        if (options.chartType == "2d") {
+            chart = new Chart2D("chart");
+        } else if (options.chartType == "3d") {
+            chart = new Chart3D("chart");
+        } else if (options.chartType == "4d") {
+            chart = new Chart4D("chart");
+        }
+
         if(!chart){
             if (columnNames.length == 2) {
                 chart = new Chart2D("chart");
-                $("#chart-type").val("chart-2d");
+                $("#chart-type").val("2d");
             } else if (columnNames.length == 3) {
                 chart = new Chart3D("chart");
-                $("#chart-type").val("chart-3d");
+                $("#chart-type").val("3d");
             } else if (columnNames.length >= 4) {
                 chart = new Chart4D("chart");
-                $("#chart-type").val("chart-4d");
+                $("#chart-type").val("4d");
             }
         }
 

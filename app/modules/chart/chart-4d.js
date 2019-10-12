@@ -1,4 +1,4 @@
-define('chart-4d', [], function () {
+define('chart-4d', ["requires"], function (requires) {
 
     'use strict'
 
@@ -9,11 +9,12 @@ define('chart-4d', [], function () {
             this.chart = undefined;
         }
 
-        plot (options, objectiveNames, series) {
+        plot (options, objectiveNames, series, ranges) {
 
             requires(options).isNotUndefined();
             requires(objectiveNames).isArray();
             requires(series).isArray();
+            requires(ranges).isArray();
 
             if(this.chart){
                 this.chart.destroy();

@@ -12,8 +12,9 @@ define('chart-3d', ["requires"], function (requires) {
         plot (options, objectiveNames, series, ranges) {
 
             requires(options).isNotUndefined();
-            requires(objectiveNames).isArray().withSizeEqualsTo(3);
+            requires(objectiveNames).isArray();
             requires(series).isArray();
+            requires(ranges).isArray();
 
             if (this.chart) {
                 this.chart.destroy();

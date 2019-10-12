@@ -12,9 +12,9 @@ define('chart-2d', ['requires'], function (requires) {
         plot (options, objectiveNames, series, ranges) {
 
             requires(options).isNotUndefined();
-            requires(objectiveNames).isArray().withSizeGreaterThanOrEqualTo(2);
+            requires(objectiveNames).isArray();
             requires(series).isArray();
-            requires(ranges).isArray().withSizeGreaterThanOrEqualTo(2);
+            requires(ranges).isArray();
 
             if (this.chart) {
                 this.chart.destroy();
