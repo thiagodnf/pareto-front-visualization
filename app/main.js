@@ -232,7 +232,7 @@ define([
         $(".example").click(function(event){
             event.preventDefault();
 
-            var url = "https://raw.githubusercontent.com/thiagodnf/pareto-front-visualization/master/examples/ZDT3.tsv";
+            var url = "https://raw.githubusercontent.com/thiagodnf/pareto-front-visualization/master/examples/ZDT3.csv";
 
             $.get(url, function(response){
                 $(".input textarea").val(response)
