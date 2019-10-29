@@ -17,7 +17,7 @@ class NavigationBar extends Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="/">Home</Nav.Link>
+                            <Nav.Link href="/pareto-front-visualization">Home</Nav.Link>
                             <NavDropdown title="Examples" id="collasible-examples">
                                 <NavDropdown.Item href="?url=examples/zdt/zdt1.txt&hasHeader=0">ZDT 1</NavDropdown.Item>
                                 <NavDropdown.Item href="?url=examples/zdt/zdt2.txt&hasHeader=0">ZDT 2</NavDropdown.Item>
