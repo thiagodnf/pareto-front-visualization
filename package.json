@@ -32,6 +32,7 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
+        "move": "mv build docs || move build docs",
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
