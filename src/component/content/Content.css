@@ -1,0 +1,19 @@
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
+    outline: none;
+}
+
+
+
+.rounded{
+    border: none;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 5px; }
+
+    /* textarea {
+        width: 100%;
+        color: #576366 !important;
+        font-size: 1.1rem !important;
+        font-weight: 400; } */
+/*
+      textarea:focus {
+        outline: none !important; } */
