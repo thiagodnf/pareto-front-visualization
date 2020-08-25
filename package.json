@@ -21,7 +21,7 @@
         "@fortawesome/fontawesome-svg-core": "1.2.25",
         "@fortawesome/free-solid-svg-icons": "5.11.2",
         "@fortawesome/react-fontawesome": "0.1.7",
-        "highcharts": "7.2.0",
+        "highcharts": "8.2.0",
         "highcharts-react-official": "2.2.2",
         "react-data-table-component": "3.6.0",
         "styled-components": "4.4.0",
